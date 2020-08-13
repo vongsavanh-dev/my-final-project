@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class gender extends Model
+class Cost extends Model
 {
-    protected $fillable = ['gender'];
+    //
 }

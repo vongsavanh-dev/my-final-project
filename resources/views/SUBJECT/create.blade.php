@@ -16,7 +16,7 @@
                         <fieldset class="border p-2">
                             <legend class="w-auto">ຟອມເພີ່ມຂໍ້ມູນວິຊາຮຽນ</legend>
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <label for="">ເລືອກສາຂາຮຽນ</label>
                                     <select class="form-control" name="major_id">
                                         @foreach ($majors as $major)
@@ -30,9 +30,8 @@
                                     </small>
                                     @endif
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8">
+
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">ຊື່ວິຊາ</label>
                                         <input type="text" class="form-control" name="sub_name" id="sub_name"
@@ -45,6 +44,10 @@
                                         @endif
                                     </div>
                                 </div>
+                            </div>
+
+
+                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">ຈຳນວນໜ່ວຍກິດ</label>
@@ -56,6 +59,29 @@
                                             <h6>{{$errors->first('credit')}}</h6>
                                         </small>
                                         @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">ລາຄາລວມໜ່ວຍກິດ</label>
+                                        <input type="text" class="form-control" name="total_price"
+                                            placeholder="ປ້ອນຈຳນວນລາຄາ">
+                                        @if ($errors->has('total_price'))
+                                        <hr>
+                                        <small class="text-danger">
+                                            <h6>{{$errors->first('total_price')}}</h6>
+                                        </small>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">ປີຮຽນ</label>
+                                        <select class="form-control" name="year_name">
+                                            <option value="ປີ1">ປີ1</option>
+                                            <option value="ປີ2">ປີ2</option>
+                                            <option value="ປີ3">ປີ3</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

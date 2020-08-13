@@ -23,6 +23,8 @@ class SubjectRequest extends FormRequest
             'credit.required' => 'ກະລຸນາປ້ອນຈຳນວນໜ່ວຍກິດ',
             'major_id.required' => 'ກະລຸນາເລືອກສາຂາ',
             'credit.required|numeric' => 'ກະລຸນາປ້ອນຈຳນວນໜ່ວຍກິດ',
+            'total_price.required|numeric' => 'ກະລະນາປ້ອນລາຄາລວມໜ່ວຍກິດ',
+            'year_name.required' => 'ປ້ອນປີຮຽນ'
 
         ];
     }
@@ -38,6 +40,8 @@ class SubjectRequest extends FormRequest
             'sub_name' => 'required|unique:subjects',
             'credit' => 'required|numeric',
             'major_id' => 'required',
+            'year_name' => 'required',
+            'total_price' => 'required|numeric'
         ];
     }
 }

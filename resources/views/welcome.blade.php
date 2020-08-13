@@ -95,36 +95,6 @@
                         </div>
                     </div><!-- End of single service area -->
 
-
-
-
-                    <div class="single_service_area margin-top-80">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="signle_service_left">
-                                    <img src="fontend/images/service3.jpg" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-sm-5 col-sm-push-1">
-                                <div class="single_service">
-                                    <h3>print</h3>
-                                    <h2>design</h2>
-                                    <div class="separator2"></div>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                        doloremque laudantium, totam rem aperiam,
-                                        eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                                        dicta sunt explicabo. </p>
-
-                                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                                        sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-                                        nesciunt.</p>
-
-                                    <a href="" class="btn btn-default">learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End of single service area -->
-
                 </div>
             </div><!-- End of col-sm-12 -->
         </div><!-- End of row -->
@@ -151,14 +121,6 @@
                     <div class="single_team">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="team">
-                                        <img class="img-circle" src="fontend/images/team1.jpg" alt="" />
-                                        <h4>paul hall</h4>
-                                        <div class="separator"></div>
-                                        <p>a rt director</p>
-                                    </div>
-                                </div> <!-- End of col-sm-4 -->
                                 <div class="col-sm-4">
                                     <div class="team">
                                         <img class="img-circle" src="fontend/images/team2.jpg" alt="" />

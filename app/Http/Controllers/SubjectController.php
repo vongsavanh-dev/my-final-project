@@ -55,13 +55,10 @@ class SubjectController extends Controller
         $search = $request->get('searchsubject');
         if ($search != '') {
 
-            $subjects = DB::table('subjects')->where('sub_name', 'like', '%' . $search . '%')
+            $subjects = Subject::where('sub_name', 'like', '%' . $search . '%')
                 ->orwhere('sub_id', 'like', '%' . $search . '%')
 
                 ->paginate(5);
-
-            return view('SUBJECT.index')->with('subjects', $subjects);
-        } else {
 
             return view('SUBJECT.index')->with('subjects', $subjects);
         }
@@ -71,27 +68,19 @@ class SubjectController extends Controller
 
     public function store(SubjectRequest $request)
     {
-        $request->validate([
 
-            'sub_name' => 'required|unique:subjects',
-            'credit' => 'required|numeric',
-            'major_id' => 'required',
+        $id = IdGenerator::generate(['table' => 'subjects', 'field' => 'sub_id', 'length' => 8, 'prefix' => 'SUB-']);
 
-        ]);
-
-        $id = IdGenerator::generate(['table' => 'subjects', 'field' => 'sub_id', 'length' => 10, 'prefix' => 'SUB-']);
-
-        Subject::create([
-
-            'sub_id' => $id,
-            'sub_name' => $request->sub_name,
-            'credit' => $request->credit,
-            'major_id' => $request->major_id,
-        ]);
+        $subjects = new Subject();
+        $subjects->sub_id = $id;
+        $subjects->sub_name = $request->input("sub_name");
+        $subjects->credit = $request->input("credit");
+        $subjects->total_price = $request->input("total_price");
+        $subjects->year_name = $request->input("year_name");
+        $subjects->major_id = $request->input("major_id");
+        $subjects->save();
         session()->flash('status', 'ບັນທຶກຂໍ້ມູນສຳເລັດ');
         return redirect()->route('subject.index');
-
-        /*   dd(request()->all()); */
     }
 
     /**

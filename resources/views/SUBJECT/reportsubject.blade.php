@@ -9,11 +9,11 @@
 
     <style>
         body {
-            font-family: Phetsarath OT;
+            font-family: 'phetsarath_ot';
         }
 
         table {
-            border: 1px solid #ccc;
+            /* border: 1px solid #ccc; */
             border-collapse: collapse;
             margin: 10px;
             padding: 0;
@@ -28,11 +28,11 @@
         }
 
         table thead tr {
-            background-color: #ddd;
+            /* background-color: #ddd; */
         }
 
         table tr {
-            background-color: #f8f8f8;
+            /*   background-color: #f8f8f8; */
             border: 1px solid #ddd;
             padding: .35em;
         }
@@ -40,13 +40,14 @@
         table th,
         table td {
             padding: .625em;
-            text-align: center;
+            /* text-align: center; */
         }
 
         table th {
             font-size: .85em;
             letter-spacing: .1em;
             text-transform: uppercase;
+            text-align: left;
         }
 
         @media screen and (max-width: 600px) {
@@ -71,7 +72,7 @@
 
 
             table tr {
-                border-bottom: 3px solid #ddd;
+                /*   border-bottom: 3px solid #ddd; */
                 display: block;
                 margin-bottom: .25em;
                 padding: 0em;
@@ -83,20 +84,20 @@
 
             table tbody tr.active-tr td:nth-child(1) {
                 background-color: #c8004c;
-                color: #fefefe;
+                /*  color: #fefefe; */
                 font-weight: bold;
             }
 
             table td {
-                border-bottom: 1px solid #ddd;
+                /*   border-bottom: 1px solid #ddd; */
                 display: block;
                 font-size: 12px;
                 font-family: Phetsarath OT;
-                text-align: right;
+                /*  text-align: right; */
             }
 
             table td:nth-child(1) {
-                background-color: #ddd;
+                /*   background-color: #ddd; */
             }
 
             table td::before {
@@ -238,6 +239,7 @@
                     <th scope="col">ລະຫັດວິຊາ</th>
                     <th scope="col">ຊື່ວິຊາ</th>
                     <th scope="col">ຈຳນວນໜ່ວຍກິດ</th>
+                    <th scope="col">ຊື່ສາຂາ</th>
                 </tr>
             </thead>
             <tbody>
@@ -246,6 +248,7 @@
                     <td>{{$subject->sub_id}}</td>
                     <td>{{$subject->sub_name}}</td>
                     <td>{{$subject->credit}}</td>
+                    <td>{{$subject->major->major_name}}</td>
                 </tr>
                 @endforeach
             </tbody>

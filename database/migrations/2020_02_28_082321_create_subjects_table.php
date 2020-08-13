@@ -18,6 +18,8 @@ class CreateSubjectsTable extends Migration
             $table->string('sub_id');
             $table->string('sub_name');
             $table->integer('credit');
+            $table->integer('total_price');
+            $table->string('year_name');
             $table->integer('major_id')->unsigned();
             $table->timestamps();
         });

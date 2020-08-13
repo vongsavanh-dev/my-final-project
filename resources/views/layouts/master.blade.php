@@ -55,14 +55,14 @@
                             data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{route('student.index')}}">ຂໍ້ມູນນັກສຶກສາ</a>
-                                <a class="nav-link"
-                                    href="{{-- {{route('studentregister.index')}} --}}">ຂໍ້ມູນການລົງທະບຽນ</a>
+                                {{--    <a class="nav-link" href="{{route('studentregister.index')}}">ຂໍ້ມູນການລົງທະບຽນ</a>
+                                --}}
                                 <a class="nav-link" href="{{route('teacher.index')}}">ຂໍ້ມູນອາຈານ</a>
                                 <a class="nav-link" href="{{route('subject.index')}}">ຂໍ້ມູນວິຊາ</a>
                                 <a class="nav-link" href="{{route('major.index')}}">ຂໍ້ມູນສາຂາ</a>
                                 <a class="nav-link" href="{{route('academic.index')}}">ຂໍ້ມູນສົກຮຽນ</a>
-                                <a class="nav-link" href="{{route('year.index')}}">ຂໍ້ມູນປີຮຽນ</a>
-                                <a class="nav-link" href="{{route('session.index')}}">ຂໍ້ມູນພາກຮຽນ</a>
+                                <a class="nav-link" href="{{route('classroom.index')}}">ຂໍ້ມູນຫ້ອງຮຽນ</a>
+
                             </nav>
                         </div>
 
@@ -82,11 +82,16 @@
                         </div>
 
 
+
+
+
+
+
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
                             aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class='fas fa-address-card' style='font-size:24px'></i>
+                            <div class="sb-nav-link-icon"><i class="fa fa-graduation-cap" style="font-size:24px"></i>
                             </div>
-                            ຜົນການຮຽນ
+                            ລົງທະບຽນ
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapsePages1" aria-labelledby="headingTwo"
@@ -98,11 +103,52 @@
                             </nav>
                         </div>
 
-                        <a class="nav-link" href="">
-                            <div class="sb-nav-link-icon"><i class='fas fa-graduation-cap' style='font-size:24px'></i>
+
+
+
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                            aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class='fab fa-bitcoin' style='font-size:24px'></i>
                             </div>
-                            ເລື່ອນຊັ້ນຮຽນ
+                            ຈ່າຍຄ່າລົງທະບຽນ
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="">ກວດສອບຫ້ອງ</a>
+                                <a class="nav-link" href="">ຂໍ້ມູນນັກສຶກສາ</a>
+                                <a class="nav-link" href="">ບັນທຶກຄະແນນ</a>
+                            </nav>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
+                            aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class='fas fa-address-card' style='font-size:24px'></i>
+                            </div>
+                            ຜົນການຮຽນ
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages3" aria-labelledby="headingTwo"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="">ກວດສອບຫ້ອງ</a>
+                                <a class="nav-link" href="">ຂໍ້ມູນນັກສຶກສາ</a>
+                                <a class="nav-link" href="">ບັນທຶກຄະແນນ</a>
+                            </nav>
+                        </div>
+
+
 
                         @if(auth()->user()->IsAdmin())
                         <a class="nav-link" href="{{route('users.index')}}">

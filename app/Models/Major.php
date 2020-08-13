@@ -18,10 +18,7 @@ class  Major extends Model
         return $this->hasMany(Subject::class, 'major_id');
     }
 
-    public function student()
-    {
-        return $this->hasMany(Student::class);
-    }
+
 
     protected $table = 'majors';
     protected $fillable = ['major_id', 'major_name'];

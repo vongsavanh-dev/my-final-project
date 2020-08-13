@@ -25,8 +25,9 @@
                         <fieldset class="border p-2">
                             <legend class="w-auto">ຟອມແກ້ໄຂຂໍ້ມູນວິຊາຮຽນ</legend>
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="">ສາຂາຮຽນ</label>
                                         <select name="major_id" class="form-control">
                                             @foreach ($majors as $major)
                                             <option value="{{$major->id}}" @if(isset($subjects)) @if($major->id ==
@@ -39,21 +40,37 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">ຊື່ວິຊາ</label>
                                         <input type="text" class="form-control" name="sub_name" id="sub_name"
                                             value="{{$subjects->sub_name}}" placeholder="ປ້ອນຊື່ວິຊາ">
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="fom-control">
                                         <label for="">ຈຳນວນໜ່ວຍກິດ</label>
                                         <input type="text" class="form-control" name="credit"
                                             value="{{$subjects->credit}}" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">ລາຄາລວມໜ່ວຍກິດ</label>
+                                        <input type="text" class="form-control" name="total_price"
+                                            value="{{$subjects->total_price}}">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">ປີຮຽນ</label>
+                                        <input type="text" class="form-control" name="year_name"
+                                            value="{{$subjects->year_name}}">
+
                                     </div>
                                 </div>
                             </div>

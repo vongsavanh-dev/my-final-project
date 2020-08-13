@@ -19,6 +19,9 @@ class CreateScoresTable extends Migration
             $table->string('surname');
             $table->string('class');
             $table->string('garde');
+            $table->integer('student_id')->unsigned()->nullable();
+            $table->integer('teacher_id')->unsigned()->nullable();
+            $table->integer('session_id')->unsigned()->nullable();
         });
     }
 

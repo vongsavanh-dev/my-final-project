@@ -34,6 +34,13 @@
 </div> --}}
 
 <div class="card-body">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>search</h3>
+            <input type="text" class="form-control searchregister">
+        </div>
+    </div>
+    <br>
     <fieldset class="border p-2">
         <legend class="w-auto">ລາຍຊື່ນັກສຶກສາລໍຖ້າຍືນຍັນການລົງທະບຽນ</legend>
         {{--   @if($subjects->count()>0) --}}
@@ -42,24 +49,25 @@
                 <thead>
                     <tr>
                         <th class="text-nowrap">ລະຫັດລົງທະບຽນ</th>
+                        <th class="text-nowrap">ລະຫັດນັກສຶກສາ</th>
                         <th class="text-nowrap">ເພດ</th>
                         <th class="text-nowrap">ຊື່ນັກສຶກສາ</th>
                         <th class="text-nowrap">ນາມສະກຸນ</th>
-                        <th class="text-nowrap">ວັນເດືອນປີເກີດ</th>
+                        {{--   <th class="text-nowrap">ວັນເດືອນປີເກີດ</th>
                         <th class="text-nowrap">ບ້ານ</th>
                         <th class="text-nowrap">ເມືອງ</th>
-                        <th class="text-nowrap">ແຂວງ</th>
+                        <th class="text-nowrap">ແຂວງ</th> --}}
                         <th class="text-nowrap">ເບີໂທ</th>
-                        <th class="text-nowrap">ສາສະໜາ</th>
+                        {{--      <th class="text-nowrap">ສາສະໜາ</th> --}}
                         <th class="text-nowrap">ສາຂາຮຽນ</th>
                         <th class="text-nowrap">ພາກຮຽນ</th>
-                        <th class="text-nowrap">ຊື່ພໍ່</th>
+                        {{--   <th class="text-nowrap">ຊື່ພໍ່</th>
                         <th class="text-nowrap">ເບີໂທ</th>
                         <th class="text-nowrap">ຊື່ແມ່</th>
-                        <th class="text-nowrap">ເບີໂທ</th>
+                        <th class="text-nowrap">ເບີໂທ</th> --}}
                         <th class="text-nowrap">ວັນທີລົງທະບຽນ</th>
                         <th class="text-nowrap">ສະຖານະ</th>
-                        <th class="text-nowrap">ປ່ຽນສະຖານະ</th>
+
 
 
 
@@ -67,32 +75,33 @@
                     @foreach ($registers as $register)
                     <tr>
                         <td class="text-nowrap">{{$register->register_id}}</td>
+                        <td class="text-nowrap">{{$register->student->st_id}}</td>
                         <td class="text-nowrap">{{$register->register_gender}}</td>
                         <td class="text-nowrap">{{$register->register_name}}</td>
                         <td class="text-nowrap">{{$register->register_surname}}</td>
-                        <td class="text-nowrap">{{$register->register_dob}}</td>
-                        <td class="text-nowrap">{{$register->register_village}}</td>
+                        {{--     <td class="text-nowrap">{{$register->register_dob}}</td> --}}
+                        {{--   <td class="text-nowrap">{{$register->register_village}}</td>
                         <td class="text-nowrap">{{$register->register_city}}</td>
-                        <td class="text-nowrap">{{$register->register_province}}</td>
+                        <td class="text-nowrap">{{$register->register_province}}</td> --}}
                         <td class="text-nowrap">{{$register->register_phone}}</td>
-                        <td class="text-nowrap">{{$register->register_religion}}</td>
+                        {{--        <td class="text-nowrap">{{$register->register_religion}}</td> --}}
                         <td class="text-nowrap">{{$register->major->major_name}}</td>
                         <td class="text-nowrap">{{$register->session->session_name}}</td>
-                        <td class="text-nowrap">{{$register->father_name}}</td>
-                        <td class="text-nowrap">{{$register->father_phone}}</td>
-                        <td class="text-nowrap">{{$register->mother_name}}</td>
-                        <td class="text-nowrap">{{$register->mother_phone}}</td>
                         <td class="text-nowrap">{{$register->created_at->format('Y/m/d')}}</td>
-                        <td class="text-nowrap">{{$register->status->status_name}}</td>
+                        <td class="text-nowrap">
+
+                            <a href="" class="btn btn-danger btn-sm">{{$register->status}}</a>
+                        </td>
+                        {{--  <td class="text-nowrap">{{$register->status->status_name}}</td> --}}
 
                         <td>
-                            <form action="{{route('studentregister.edit',$register->id)}}" method="POST">
-                                @csrf
-                                <input type="hidden" name="_method" value="GET">
-                                <button class="btn btn-success" type="submit">
-                                    ຍືນຍັນ
-                                </button>
-                            </form>
+                            {{-- <form action="{{route('studentregister.edit',$register->id)}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="_method" value="GET">
+                            <button class="btn btn-success" type="submit">
+                                ຍືນຍັນ
+                            </button>
+                            </form> --}}
 
                         </td>
                     </tr>
@@ -170,4 +179,6 @@
 
 @endif
 </script>
+
+
 @stop

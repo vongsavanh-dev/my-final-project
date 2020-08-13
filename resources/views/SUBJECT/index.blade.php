@@ -42,7 +42,9 @@
                             <th scope="col">ລະຫັດວິຊາ</th>
                             <th scope="col">ຊື່ວິຊາ</th>
                             <th scope="col">ຈຳນວນໜ່ວຍກິດ</th>
+                            <th scope="col">ຈຳນວນລາຄາລວມໜ່ວຍກິດ</th>
                             <th scope="col">ຊື່ສາຂາ</th>
+                            <th scope="col">ປີຮຽນ</th>
                             <th scope="col">ແກ້ໄຂ</th>
                             <th scope="col">ລຶບ</th>
 
@@ -52,7 +54,9 @@
                             <td>{{$subject->sub_id}}</td>
                             <td>{{$subject->sub_name}}</td>
                             <td>{{$subject->credit}}</td>
+                            <td>{{$subject->total_price}}</td>
                             <td>{{$subject->major->major_name}}</td>
+                            <td>{{$subject->year_name}}</td>
                             <td>
                                 <a href="{{route('subject.edit',$subject->id)}}">
                                     <i class='fas fa-tools'

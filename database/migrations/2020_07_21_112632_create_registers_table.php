@@ -15,23 +15,14 @@ class CreateRegistersTable extends Migration
     {
         Schema::create('registers', function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('register_id');
-            $table->string('register_gender');
-            $table->string('register_name');
-            $table->string('register_surname');
-            $table->integer('register_phone');
-            $table->string('register_village');
-            $table->string('register_city');
-            $table->string('register_province');
-            $table->string('register_dob');
-            $table->string('register_religion');
-            $table->string('father_name');
-            $table->string('mother_name');
-            $table->string('father_phone');
-            $table->string('mother_phone');
-            $table->integer('major_id');
-            $table->integer('session_id');
-            $table->integer('status_id')->default();
+            $table->string('reg_id');
+            $table->integer('st_id')->unsigned();
+            $table->integer('major_id')->unsigned();
+            $table->integer('academic_id')->unsigned();
+            $table->integer('classroom_id')->unsigned()->nullable();
+            $table->enum('session_name', ['ພາກເຊົ້າ', 'ພາກບ່າຍ', 'ພາກຄ່ຳ'])->default('ພາກເຊົ້າ');
+            $table->enum('year_name', ['ປີ1', 'ປີ2', 'ປີ3'])->default('ປີ1');
+            $table->enum('reg_status', ['Success', 'Wait'])->default('Wait');
             $table->timestamps();
         });
     }

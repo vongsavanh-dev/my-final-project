@@ -1,6 +1,6 @@
-<div class='preloader'>
+{{-- <div class='preloader'>
     <div class='loaded'>&nbsp;</div>
-</div>
+</div> --}}
 <header id="main_menu" class="header navbar-fixed-top">
     <div class="main_menu_bg">
         <div class="container">
@@ -27,7 +27,8 @@
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{route('student.create')}}">ລົງທະບຽນນັກສຶກສາໃໝ່</a>
                                                 </li>
-                                                <li><a href="service1.html">ລົງທະບຽນນັກສຶກສາເກົ່າ</a></li>
+                                                <li><a href="{{'/secondregister/create'}}">ລົງທະບຽນນັກສຶກສາເກົ່າ</a>
+                                                </li>
                                                 <li><a href="service1.html">ລົງທະບຽນນັກສຶກສາເທີມສາມ</a></li>
                                             </ul>
                                         </li>

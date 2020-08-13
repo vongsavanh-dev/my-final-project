@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReligionsTable extends Migration
+class CreateClassroomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateReligionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('religions', function (Blueprint $table) {
+        Schema::create('classrooms', function (Blueprint $table) {
             $table->Increments('id');
-            $table->enum('religion', ['ສາສະໜາພຸດ', 'ສາສະໜາຜີ', 'ສາສະໜາກາໂຕລິກ'])->default('ສາສະໜາພຸດ');
+            $table->string('class_id');
+            $table->string('class_name');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateReligionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('religions');
+        Schema::dropIfExists('classrooms');
     }
 }

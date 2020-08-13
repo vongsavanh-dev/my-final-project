@@ -9,7 +9,7 @@
 
     <style>
         body {
-            font-family: Phetsarath OT;
+            font-family: phetsarath_ot;
         }
 
         table {

@@ -17,6 +17,7 @@ class CreateSessionsTable extends Migration
             $table->Increments('id');
             $table->string('session_id');
             $table->string('session_name');
+            $table->integer('class_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

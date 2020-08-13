@@ -33,7 +33,7 @@
                             <th scope="col" class="text-nowrap">ຫົວຂໍ້</th>
                             <th scope="col">ປະເພດແຈ້ງການ</th>
                             <th scope="col">ຄຳອະທິບາຍ</th>
-                            <th scope="col">ບັນທຶກ</th>
+                            <th scope="col">ແກ້ໄຂ</th>
                             <th scope="col">ລຶບ</th>
 
 

@@ -34,11 +34,10 @@ return [
 
     'font_path' => base_path('resources/font/'),
     'font_data' => [
-        'examplefont' => [
-            'R'  => 'Phetsarath OT.ttf',    // regular font
-
-            /* 'B'  => 'ExampleFont-Bold.ttf',       // optional: bold font
-            'I'  => 'ExampleFont-Italic.ttf',     // optional: italic font
+        'phetsarath_ot' => [
+            'R'  => 'phetsarath-ot.ttf',    // regular font
+            'B'  => 'phetsarath-ot.ttf',       // optional: bold font
+            /*  'I'  => 'ExampleFont-Italic.ttf',     // optional: italic font
             'BI' => 'ExampleFont-Bold-Italic.ttf' // optional: bold-italic font */
             //'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
             //'useKashida' => 75,  // required for complicated langs like Persian, Arabic and Chinese

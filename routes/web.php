@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Blog\PostController;
 use App\Http\Controllers\UserController;
+use App\Models\Teacher;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,9 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $teacher = Teacher::all();
+    return view('welcome')
+        ->with('teacher', $teacher);
 });
 
 Auth::routes();
@@ -63,18 +66,27 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/score/import', 'ImportExcelController@store');
 });
 
-/* route user */
-
-/* Route::resource('student_register', 'StudentRegisterController'); */
 
 
+/* Route::resource('studentregister', 'RegisterController');
+Route::get('/search', 'RegisterController@search')->name('search'); */
 
+Route::resource('secondregister', 'RegisterController');
+Route::post('secondregister/create', 'RegisterController@create');
+Route::get('/searchregister', 'RegisterController@searchregister')->name('searchregister');
 
 
 Route::resource('student', 'StudentController');
 Route::Post('student/create', 'StudentController@fetch')->name('dropdown.fetch');
+Route::get('report/{register_id}', 'StudentController@report')->name('studentreport');
+Route::get('reportstudent', 'StudentController@reportamountstudent')->name('amountreport');
+
+# Bill-No
+Route::get('preview-info-student/{id}', 'StudentController@PreviewInfoStudent')->name('preview.info.student');
 
 
+
+Route::resource('classroom', 'ClassRoomController');
 
 
 

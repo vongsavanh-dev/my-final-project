@@ -41,13 +41,12 @@
                 <fieldset class="border p-2">
                     <legend class="w-auto">ຂໍ້ມູນສ່ວນຕົວ</legend>
                     <div class="row">
-
                         <div class="col-md-3">
                             <label for="">ເລືອກເພດ</label>
                             <select class="form-control" name="st_gender">
-                                @foreach (App\Models\gender::all() as $gender)
-                                <option value="{{$gender->gender}}">{{$gender->gender}}</option>
-                                @endforeach
+                                <option value="ທ້າວ">ທ້າວ</option>
+                                <option value="ນາງ">ນາງ</option>
+                                <option value="ພຣະ">ພຣະ</option>
                             </select>
                             <br>
                             @if ($errors->has('st_gender'))
@@ -90,11 +89,10 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">ເບີໂທລະສັບ</label>
-                                <input type="text" class="form-control" name="st_phone">
-                                <br>
-                                @if ($errors->has('st_phone'))
+                                <input type="text" class="form-control" name="st_tel" <br>
+                                @if ($errors->has('st_tel'))
                                 <small class="text-danger">
-                                    <h6>{{$errors->first('st_phone')}}</h6>
+                                    <h6>{{$errors->first('st_tel')}}</h6>
                                 </small>
                                 @endif
                             </div>
@@ -114,7 +112,7 @@
 
                         <div class="col-md-3">
                             {{--  <div class="form-group"> --}}
-                            <label for="district">ແຂວງ</label>
+                            <label for="province">ແຂວງ</label>
                             <select name="st_province" id="province" class="form-control province">
                                 <option value="">ເລືອກແຂວງ</option>
                                 @foreach ($list as $item)
@@ -131,8 +129,11 @@
 
                         <div class="col-md-3">
                             <label for="province">ເມືອງ</label>
-                            <select name="st_city" id="district" class="form-control district">
-                                <option value=""></option>
+                            <select name="district_id" id="district" class="form-control district">
+                                <option value="">ເລືອກເມືອງ</option>
+                                @foreach ($district as $item)
+                                <option value="{{$item->dr_id}}">{{$item->dr_name}}</option>
+                                @endforeach
                             </select>
                             @if ($errors->has('st_city'))
                             <small class="text-danger">
@@ -146,7 +147,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <label for="">ວັນເດືອນປີເກີດ</label>
-                            <input class="date form-control" type="text" id="datepicker" name="st_dob">
+                            <input class="date form-control" type="date" {{-- id="datepicker" --}} name="st_dob">
                             <br>
                             @if ($errors->has('st_dob'))
                             <small class="text-danger">
@@ -156,16 +157,12 @@
                         </div>
 
                         <div class="col-md-3">
-                            <label for="">ເລືອກສາສະໜາ</label>
-                            <select class="form-control" name="st_religion">
-                                @foreach (App\Models\religion::all() as $religion)
-                                <option value="{{$religion->religion}}">{{$religion->religion}}</option>
-                                @endforeach
-                            </select>
+                            <label for="">ສາສະໜາ</label>
+                            <input type="text" class="form-control" name="religion">
                             <br>
-                            @if ($errors->has('st_religion'))
+                            @if ($errors->has('religion'))
                             <small class="text-danger">
-                                <h6>{{$errors->first('st_religion')}}</h6>
+                                <h6>{{$errors->first('religion')}}</h6>
                             </small>
                             @endif
                         </div>
@@ -186,24 +183,37 @@
                         </div>
                         <div class="col-md-3">
                             <label for="">ເລືອກພາກຮຽນ</label>
-                            <select class="form-control" name="session_id">
-                                <option selected>---ເລືອກພາກຮຽນ---</option>
-                                @foreach ($sessions as $session)
-                                <option value="{{$session->id}}">{{$session->session_name}}</option>
-                                @endforeach
+                            <select class="form-control" name="session_name">
+                                <option>ພາກເຊົ້າ</option>
+                                <option>ພາກບ່າຍ</option>
+                                <option>ພາກຄ່ຳ</option>
                             </select>
                             <br>
-                            @if ($errors->has('session_id'))
+                            @if ($errors->has('session_name'))
                             <small class="text-danger">
-                                <h6>{{$errors->first('session_id')}}</h6>
+                                <h6>{{$errors->first('session_name')}}</h6>
                             </small>
                             @endif
                         </div>
                     </div>
 
-
-
-
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="">ສົກຮຽນ</label>
+                            <select class="form-control" name="academic_id">
+                                <option selected>-----ສົກຮຽນ-----</option>
+                                @foreach ($academics as $academic)
+                                <option value="{{$academic->id}}">{{$academic->Ac_name}}</option>
+                                @endforeach
+                            </select>
+                            <br>
+                            @if ($errors->has('academic_id'))
+                            <small class="text-danger">
+                                <h6>{{$errors->first('academic_id')}}</h6>
+                            </small>
+                            @endif
+                        </div>
+                    </div>
                 </fieldset>
 
                 <br>
@@ -213,57 +223,31 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">ຊື່ພໍ່</label>
-                                <input type="text" class="form-control" name="father_name">
+                                <label for="">ຊື່ຜູ້ປົກຄອງ</label>
+                                <input type="text" class="form-control" name="parent_name">
                                 <br>
-                                @if ($errors->has('father_name'))
+                                @if ($errors->has('parent_name'))
                                 <small class="text-danger">
-                                    <h6>{{$errors->first('father_name')}}</h6>
+                                    <h6>{{$errors->first('parent_name')}}</h6>
                                 </small>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">ຊື່ແມ່</label>
-                                <input type="text" class="form-control" name="mother_name">
+                                <label for="">ເບີໂທຜູ້ປົກຄອງ</label>
+                                <input type="text" class="form-control" name="parent_tel">
                                 <br>
-                                @if ($errors->has('mother_name'))
+                                @if ($errors->has('parent_tel'))
                                 <small class="text-danger">
-                                    <h6>{{$errors->first('mother_name')}}</h6>
+                                    <h6>{{$errors->first('parent_tel')}}</h6>
                                 </small>
                                 @endif
                             </div>
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">ເບີໂທຕິດຕໍ່</label>
-                                <input type="text" class="form-control" name="father_phone">
-                                <br>
-                                @if ($errors->has('father_phone'))
-                                <small class="text-danger">
-                                    <h6>{{$errors->first('father_phone')}}</h6>
-                                </small>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">ເບີໂທຕິດຕໍ່</label>
-                                <input type="text" class="form-control" name="mother_phone">
-                                <br>
-                                @if ($errors->has('mother_phone'))
-                                <small class="text-danger">
-                                    <h6>{{$errors->first('mother_phone')}}</h6>
-                                </small>
-                                @endif
-                            </div>
-                        </div>
 
-                    </div>
 
                     <div class="row">
                         <div class="col-md-6">
@@ -284,12 +268,14 @@
         </div>
     </div>
 
-    <script type="text/javascript">
+    {{--   <script type="text/javascript">
         $('#datepicker').datepicker({
                         autoclose: true,
                         format: 'yyyy-mm-dd'
     });
-    </script>
+    </script> --}}
+
+
 
 
     <script type="text/javascript">

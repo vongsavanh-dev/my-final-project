@@ -8,6 +8,9 @@ use App\Models\Session;
 use  Haruncpi\LaravelIdGenerator\IdGenerator;
 use App\Models\Register;
 use App\Http\Requests\RegisterRequest;
+use App\Models\Student;
+use DB;
+use Illuminate\Foundation\Console\Presets\React;
 
 class RegisterController extends Controller
 {
@@ -16,10 +19,12 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+
+
+    public function index(Request $request)
     {
-        /*  $registers = Register::all();
-        return view('REGISTER.index')->with('registers', $registers); */
     }
 
     /**
@@ -29,13 +34,21 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        /*  $registers = Register::all();
-        return view('REGISTER.Register-newstudent')
-            ->with('registers', $registers)
-            ->with('majors', Major::all())
-            ->with('sessions', Session::all()); */
+        $searchStudentId = '';
+        $checkMajor = [];
+        return view('REGISTER.RegisterScond', compact('searchStudentId', 'checkMajor'));
     }
 
+    public function searchregister(Request $request)
+    {
+        $searchStudentId = Student::where('st_id', $request->searchregister)
+            ->first();
+        $checkMajor = Register::select('registers.id as registerId', 'major.id as majorId', 'major.major_name')
+            ->where('st_id', $searchStudentId->id)
+            ->leftjoin('majors as major', 'major.id', '=', 'registers.major_id')
+            ->first();
+        return view('REGISTER.RegisterScond', compact('searchStudentId', 'checkMajor'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -44,29 +57,18 @@ class RegisterController extends Controller
      */
     public function store(RegisterRequest $request)
     {
-        /* $id = IdGenerator::generate(['table' => 'registers', 'field' => 'register_id', 'length' => 10, 'prefix' => 'RGT20-']);
-        Register::create([
-            'register_id' => $id,
-            'register_name' => $request->register_name,
-            'register_surname' => $request->register_surname,
-            'register_gender' => $request->register_gender,
-            'register_phone' => $request->register_phone,
-            'register_village' => $request->register_village,
-            'register_city' => $request->register_city,
-            'register_province' => $request->register_province,
-            'register_dob' => $request->register_dob,
-            'register_religion' => $request->register_religion,
-            'father_name' => $request->father_name,
-            'mother_name' => $request->mother_name,
-            'father_phone' => $request->father_phone,
-            'mother_phone' => $request->mother_phone,
-            'major_id' => $request->major_id,
-            'session_id' => $request->session_id,
-
-        ]);
-        session()->flash('status', 'ລົງທະບຽນສຳເລັດ');
-        return redirect(route('studentregister.create')); */
     }
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Display the specified resource.
@@ -87,10 +89,6 @@ class RegisterController extends Controller
      */
     public function edit($id)
     {
-        /* $registers = Register::findOrfail($id);
-        return view('REGISTER.edit')->with('registers', $registers)
-            ->with('majors', Major::all())
-            ->with('sessions', Session::all()); */
     }
 
     /**
@@ -114,5 +112,9 @@ class RegisterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
     }
 }
